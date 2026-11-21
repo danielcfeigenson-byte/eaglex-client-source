@@ -15,13 +15,14 @@ import org.jspecify.annotations.Nullable;
  * Theme Editor: the client's colors and font, menus and HUD alike. Pick a preset, or change the
  * accent, the text, the panels, how see-through they are and the font one by one, live; share a
  * theme as a code another player pastes in. Part of the client, not a module the player turns on
- * ({@link #alwaysOn()}): the module menu's sidebar opens it, and Frost is its first preset.
+ * ({@link #alwaysOn()}): the module menu's sidebar opens it, and EagleX Green is its first preset.
  */
 public final class ThemeEditor extends Module {
 
     /** Ready-made themes: each sets the colors below. */
     public enum Preset {
         CUSTOM("Custom", null),
+        EAGLEX("EagleX", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3)),
         FROST("Frost", ThemeColors.FROST),
         MIDNIGHT("Midnight", new ThemeColors(0x8B9CFF, 0xF2F4FF, 0xA3A9C7, 0x161A2E, 88, 45, 3)),
         EMBER("Ember", new ThemeColors(0xFFB067, 0xFFF6EE, 0xC9B8A8, 0x2E1F1A, 86, 42, 3)),
@@ -54,28 +55,28 @@ public final class ThemeEditor extends Module {
     static final String CODE_PREFIX = "incari-theme:";
 
     final ChoiceSetting<Preset> preset = settings()
-            .choice("preset", "Preset", Preset.values(), Preset.FROST, Preset::label)
+            .choice("preset", "Preset", Preset.values(), Preset.EAGLEX, Preset::label)
             .describedAs("Loads a preset theme into the colors below.");
     final ColorSetting accent = settings()
-            .color("accent", "Accent", ThemeColors.FROST.accent())
+            .color("accent", "Accent", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).accent())
             .describedAs("What's on, chosen or focused.");
-    final ColorSetting text = settings().color("text", "Text", ThemeColors.FROST.text());
+    final ColorSetting text = settings().color("text", "Text", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).text());
     final ColorSetting muted = settings()
-            .color("muted", "Secondary text", ThemeColors.FROST.muted())
+            .color("muted", "Secondary text", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).muted())
             .describedAs("Descriptions, labels, what's off.");
     final ColorSetting panel = settings()
-            .color("panel", "Panels", ThemeColors.FROST.panel())
+            .color("panel", "Panels", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).panel())
             .describedAs("Menu panels and the HUD's background.");
     final IntSetting panelOpacity = settings()
-            .integer("panel-opacity", "Panel opacity", 40, 100, ThemeColors.FROST.panelOpacity())
+            .integer("panel-opacity", "Panel opacity", 40, 100, 88)
             .formattedAs(percent -> percent + "%")
             .describedAs("How solid the menus' panels are (Potato GUI; Normal blurs behind them).");
     final IntSetting hudOpacity = settings()
-            .integer("hud-opacity", "HUD background opacity", 0, 100, ThemeColors.FROST.hudOpacity())
+            .integer("hud-opacity", "HUD background opacity", 0, 100, 48)
             .formattedAs(percent -> percent + "%")
             .describedAs("How solid the background behind HUD text is.");
     final IntSetting radius = settings()
-            .integer("radius", "Corner rounding", 0, 8, ThemeColors.FROST.radius())
+            .integer("radius", "Corner rounding", 0, 8, 3)
             .describedAs("How round buttons and panels are.");
     final ChoiceSetting<UiFont> font = settings()
             .choice("font", "Font", UiFont.values(), UiFont.RED_HAT_DISPLAY, UiFont::label)
