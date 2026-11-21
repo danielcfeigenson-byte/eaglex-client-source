@@ -4,7 +4,7 @@ The client's colors and font for menus and HUD: presets or your own, shared as a
 
 | Setting | Kind | Default |
 | --- | --- | --- |
-| Preset | Custom, Frost, Midnight, Ember, Mint, Rose, Mono | Frost |
+| Preset | EagleX, Custom, Frost, Midnight, Ember, Mint, Rose, Mono | EagleX |
 | Accent / Text / Secondary text / Panels | colors | Frost's |
 | Panel opacity | 40-100% | 86% |
 | HUD background opacity | 0-100% | 42% |
