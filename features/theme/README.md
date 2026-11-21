@@ -5,9 +5,9 @@ The client's colors and font for menus and HUD: presets or your own, shared as a
 | Setting | Kind | Default |
 | --- | --- | --- |
 | Preset | EagleX, Custom, Frost, Midnight, Ember, Mint, Rose, Mono | EagleX |
-| Accent / Text / Secondary text / Panels | colors | Frost's |
-| Panel opacity | 40-100% | 86% |
-| HUD background opacity | 0-100% | 42% |
+| Accent / Text / Secondary text / Panels | colors | EagleX Green's |
+| Panel opacity | 40-100% | 88% |
+| HUD background opacity | 0-100% | 48% |
 | Corner rounding | 0-8 | 3 |
 | Font | Red Hat Display, Minecraft, Inter, Nunito, Poppins, JetBrains Mono, Michroma | Red Hat Display |
 | Export theme / Import theme | buttons | copy / paste a code |
