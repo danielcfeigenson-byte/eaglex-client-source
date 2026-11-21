@@ -19,10 +19,13 @@ import org.jspecify.annotations.Nullable;
  */
 public final class ThemeEditor extends Module {
 
+    private static final ThemeColors EAGLEX_GREEN =
+            new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3);
+
     /** Ready-made themes: each sets the colors below. */
     public enum Preset {
         CUSTOM("Custom", null),
-        EAGLEX("EagleX", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3)),
+        EAGLEX("EagleX", EAGLEX_GREEN),
         FROST("Frost", ThemeColors.FROST),
         MIDNIGHT("Midnight", new ThemeColors(0x8B9CFF, 0xF2F4FF, 0xA3A9C7, 0x161A2E, 88, 45, 3)),
         EMBER("Ember", new ThemeColors(0xFFB067, 0xFFF6EE, 0xC9B8A8, 0x2E1F1A, 86, 42, 3)),
@@ -58,14 +61,14 @@ public final class ThemeEditor extends Module {
             .choice("preset", "Preset", Preset.values(), Preset.EAGLEX, Preset::label)
             .describedAs("Loads a preset theme into the colors below.");
     final ColorSetting accent = settings()
-            .color("accent", "Accent", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).accent())
+            .color("accent", "Accent", EAGLEX_GREEN.accent())
             .describedAs("What's on, chosen or focused.");
-    final ColorSetting text = settings().color("text", "Text", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).text());
+    final ColorSetting text = settings().color("text", "Text", EAGLEX_GREEN.text());
     final ColorSetting muted = settings()
-            .color("muted", "Secondary text", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).muted())
+            .color("muted", "Secondary text", EAGLEX_GREEN.muted())
             .describedAs("Descriptions, labels, what's off.");
     final ColorSetting panel = settings()
-            .color("panel", "Panels", new ThemeColors(0x39FF14, 0xE8FFE8, 0x9FC99F, 0x102010, 88, 48, 3).panel())
+            .color("panel", "Panels", EAGLEX_GREEN.panel())
             .describedAs("Menu panels and the HUD's background.");
     final IntSetting panelOpacity = settings()
             .integer("panel-opacity", "Panel opacity", 40, 100, 88)
